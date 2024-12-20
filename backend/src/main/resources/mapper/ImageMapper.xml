@@ -16,8 +16,11 @@
 
     <!-- 이미지 조회 -->
     <select id="SearchImage" resultType="byte[]">
-        SELECT BOARD_IMG
-        FROM KYH3388.KYH_TB_IMG
-        WHERE BOARD_NO = #{boardNo}
+        SELECT
+            BOARD_IMG
+        FROM
+            KYH3388.KYH_TB_IMG
+        WHERE
+            BOARD_NO = #{boardNo}
     </select>
 </mapper>
