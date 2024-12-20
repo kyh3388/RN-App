@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.backend.user.UserMapper">
+
+    <select id="findIdPw" resultType="com.example.backend.user.UserDomain">
+        SELECT
+            USER_ID, USER_PW
+        FROM
+            KYH3388.KYH_TB_USER
+        WHERE
+            USER_ID = #{userId}
+            AND USER_PW = #{userPw}
+    </select>
+
+</mapper>

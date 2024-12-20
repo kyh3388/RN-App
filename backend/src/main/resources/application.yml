@@ -1,0 +1,23 @@
+server:
+  address: 0.0.0.0
+  port: 8080
+
+spring:
+  datasource:
+    url: "jdbc:oracle:thin:@pathcosmos.iptime.org:15329:XE"
+    username: "KYH3388"
+    password: "1234@"
+    driver-class-name: oracle.jdbc.OracleDriver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.backend.user
+
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    org.mybatis: DEBUG
+
+

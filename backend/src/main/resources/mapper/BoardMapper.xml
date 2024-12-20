@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.backend.board.BoardMapper">
+
+    <!-- 게시물 조회 쿼리 -->
+    <select id="findBoards" resultType="com.example.backend.board.BoardDomain">
+        SELECT *
+        FROM KYH3388.KYH_TB_BOARD
+        WHERE USER_ID = #{userId}
+          AND BOARD_TYPE IN ('A', 'B', 'C', 'D')
+    </select>
+</mapper>
