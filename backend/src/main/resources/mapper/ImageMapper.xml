@@ -9,9 +9,9 @@
         INSERT INTO KYH3388.KYH_TB_IMG (
             BOARD_NO, BOARD_IMG, CRE_DT
         ) VALUES (
-            #{boardNo}, #{boardImg}, NOW()
+            #{boardNo}, #{boardImg}, SYSDATE
         ) ON DUPLICATE KEY
-            UPDATE BOARD_IMG = #{boardImg}, CRE_DT = NOW();
+            UPDATE BOARD_IMG = #{boardImg}, CRE_DT = SYSDATE;
     </insert>
 
     <!-- 이미지 조회 -->

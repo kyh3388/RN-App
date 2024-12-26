@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,11 +26,23 @@ public class ImageController {
     @PostMapping("/upload")
     public ResponseEntity<String> uploadImage(
             @RequestParam("boardNo") int boardNo,
-            @RequestParam("boardImg") MultipartFile boardImg) throws IOException {
+            @RequestPart("boardImg") MultipartFile boardImg
+            ) throws IOException {
+
+                System.out.println("boardNo: " + boardNo);
+                System.out.println("boardImg: " + boardImg); // boardImg가 null인지 확인
+                System.out.println("boardImg Original Filename: " + boardImg.getOriginalFilename()); // 파일 이름 확인
+                
+            
+
+        if (boardImg == null) {
+            return ResponseEntity.badRequest().body("boardImg 필드가 누락되었습니다.");
+        }
 
         imageService.saveOrUpdateImage(boardNo, boardImg);
         return ResponseEntity.ok("이미지 저장 완료");
     }
+
 
     // 이미지 조회
     @GetMapping("/{boardNo}")

@@ -11,10 +11,12 @@ public class WebConfig {
     @Bean // Spring 컨테이너에서 관리되는 Bean으로 등록
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
+
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // 모든 경로에 대해
-                .allowedOrigins("*"); // 모든 출처(origin)를 허용
+                        .allowedOrigins("*") // 모든 출처(origin)를 허용
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD");
             }
         };
     }
